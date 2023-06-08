@@ -1,7 +1,7 @@
 import requests
 
 # url для поиска пациэнтов в базе данных больницы
-url = 'http://gorzdrav.spb.ru/_api/api/v2/patient/search'
+url = 'https://gorzdrav.spb.ru/_api/api/v2/patient/search'
 #session = requests.Session()
 
 headers = {
@@ -22,7 +22,8 @@ print(resp.json())
 token = resp.headers['token']
 print(token)
 # url для для post-запроса
-url_1 = 'https://gorzdrav.spb.ru/_api/api/v2/appointment/create'
+# Вики по запросам: https://github.com/egorantonov/gorzdrav/wiki/SPB-Gorzdrav-API-Documentation
+url_1 = 'https://gorzdrav.spb.ru/_api/api/v2/appointment/create' #Это запись на прием
 
 head = {
     'Accept': '*/*',
