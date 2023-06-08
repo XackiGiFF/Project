@@ -1,8 +1,8 @@
 import requests
 
 # url для поиска пациэнтов в базе данных больницы
-url = 'https://gorzdrav.spb.ru/_api/api/v2/patient/search'
-session = requests.Session()
+url = 'http://gorzdrav.spb.ru/_api/api/v2/patient/search'
+#session = requests.Session()
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -17,7 +17,7 @@ params = {'lpuId': 296,
           'birthdate': '1998-07-18T00:00:00',
           'birthdateValue': '18.07.1998'}
 
-resp = session.get(url, params=params, headers=headers)
+resp = requests.get(url, params=params, headers=headers)
 print(resp.json())
 token = resp.headers['token']
 print(token)
@@ -58,5 +58,5 @@ data = {
     "address": "ул. Хлопина, д. 11, к. 1"
 }
 
-response = session.post(url_1, data=data, headers=head)
+response = requests.post(url_1, data=data, headers=head)
 print(response.json())
